@@ -1,0 +1,48 @@
+let arr = [1024,512,256,128,64,32,16,8,4,2,1]
+let cou_arr = [];
+
+
+/* 1. count the number of set bits wrt its arr[i].
+   2. insert that counts in cou_arr.
+   3. sort both array by using sorting techniques like bubble sort and handle edge cases.
+   4. print arr.
+   
+*/
+
+// step 1 
+
+for(let i=0;i<arr.length;i++){
+  var count=0;
+  for(let j=0;j<arr.length;j++){
+    if(((arr[i]>>j)&1)==1){
+      count=count+1
+    }
+  }
+  //step 2
+  cou_arr.push(count);
+}
+
+//step 3
+
+
+for(let i=0;i<arr.length;i++){
+  for(let j=1;j<arr.length;j++){
+    if(arr[j] < arr[j-1]){
+      
+      
+      let temp = arr[j]
+      arr[j] = arr[j-1]
+      arr[j-1]=temp
+    }
+  }
+}
+
+// step 4 
+
+
+console.log(arr);
+
+
+
+
+  
