@@ -1,0 +1,50 @@
+/**
+ * @param {number[]} arr
+ * @return {number[]}
+ */
+var sortByBits = function(arr) {
+
+// take count of set bits
+    let cou_arr = []
+for(let i=0;i<arr.length;i++){
+  let count=0
+  for(let j=0;j<=31;j++){
+    if(((arr[i]>>j)&1)==1){
+      count=count+1 
+      
+    }
+  }
+  // insert count of set bits in array
+  cou_arr.push(count);
+  
+}
+
+//bubble sort of both arrays
+
+for(var i=0;i<arr.length;i++){
+  for(var j=1;j<arr.length;j++){
+    if(cou_arr[j]<cou_arr[j-1] || cou_arr[j]==cou_arr[j-1] && arr[j]<arr[j-1]){
+      var temp=cou_arr[j];
+      cou_arr[j]=cou_arr[j-1];
+      cou_arr[j-1]=temp;
+      
+      temp=arr[j];
+      arr[j]=arr[j-1];
+      arr[j-1]=temp;
+      
+    }
+  }
+}
+
+
+
+for(let i=0;i<arr.length;i++){
+  return arr
+}
+
+
+
+    
+
+    
+};
